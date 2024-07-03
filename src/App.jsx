@@ -1,11 +1,14 @@
 import React, { useState } from "react";
-import "./categories.style.scss";
-import Category from "./components/Category/category.component";
+import { Routes, Route } from "react-router-dom";
+
+import Home from "./routes/home/home.component";
 
 const App = () => {
   return (
     <>
-      <Category />
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
     </>
   );
 };
