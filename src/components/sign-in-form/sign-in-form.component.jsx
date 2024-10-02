@@ -17,27 +17,24 @@ const SignInForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
 
-  console.log(formFields);
-
   const resetForm = () => {
     setFormFields(defaultFormFields);
   };
 
   const signInWithGoogle = async () => {
-    const { user } = await signInWithGooglePopup();
-
-    const userDocRef = await createUserDocFromAuth(user);
+    await signInWithGooglePopup();
   };
 
   const handleSubmits = async (event) => {
     event.preventDefault();
 
     try {
-      const response = await SignInAuthUserWithEmailAndPassword(
+      const { user } = await SignInAuthUserWithEmailAndPassword(
         email,
         password
       );
-      console.log(response);
+
+      resetForm();
     } catch (error) {
       console.log(error);
       if (error.code === "auth/invalid-credential") {
