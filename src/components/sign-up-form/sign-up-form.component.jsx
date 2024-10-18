@@ -5,7 +5,7 @@ import {
 } from "../../utils/firebase/firebase.utils";
 import FormInput from "../form-input/form-input.component";
 import "./sign-up-form.style.scss";
-import Button from "../button/button.component";
+import Button, { BUTTON_TYPES_CLASESS } from "../button/button.component";
 
 const defaultFormFields = {
   displayName: "",
